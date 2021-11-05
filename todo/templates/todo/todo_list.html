@@ -1,0 +1,16 @@
+
+{% extends 'todo/layout.html' %}
+
+{% block layout_block %}
+
+
+<ul>
+{% for task in task_list %}
+    <li>{{ task.name }}
+            <a class="btn btn-info" href="{% url 'todo-update' task.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'todo-delete' task.id %}">Delete</a> </li>
+{% empty %}
+    <li>Congratulation, no tasks in this list.</li>
+{% endfor %}
+</ul>
+{% endblock %}
